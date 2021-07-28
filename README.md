@@ -25,4 +25,7 @@ Please use the [issue tracker](https://github.com/J-PAL/Sample_Size_and_Power/is
 
 See [license file](https://github.com/J-PAL/Sample_Size_and_Power/blob/main/LICENSE.txt)
 
+## Authors
+Sabhya Gupta (sagupta@povertyactionlab.org) with input from Jack Cavanagh, Maya Duru, Mike Gibson and Sarah Kopper
+
 
