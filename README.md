@@ -18,11 +18,11 @@ baroda_0102_1obs.dta: Data file required to run J-PAL_Power_built_in_command as 
 
 ## Support
 
-Please use the [issue tracker] https://github.com/J-PAL/Sample_Size_and_Power/issues for all support requests
+Please use the [issue tracker] (https://github.com/J-PAL/Sample_Size_and_Power/issues) for all support requests
 
 
 ## License
 
-See [license file] https://github.com/J-PAL/Sample_Size_and_Power/blob/main/LICENSE.txt 
+See [license file] (https://github.com/J-PAL/Sample_Size_and_Power/blob/main/LICENSE.txt)
 
 
