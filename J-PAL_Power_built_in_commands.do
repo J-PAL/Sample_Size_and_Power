@@ -262,12 +262,12 @@ di as error "A minimum sample size of `samplesize_tu' is needed to detect an eff
 *Note: This module calls on locals in modules 1-3, so you'll have to run them too
 
 //how sample_size changes when we change the design
-matrix input sample_size = (1,0,`effect',`samplesize' `sd'\ 1,`number_covariates',`effect_cov',`samplesize_cov' `res_sd' \ `tu',0,`effect_tu',`samplesize_tu' `sd_tu')
+matrix input sample_size = (1,0,`effect',`samplesize', `sd'\ 1,`number_covariates',`effect_cov',`samplesize_cov', `res_sd' \ `tu',0,`effect_tu',`samplesize_tu', `sd_tu')
 matrix colnames sample_size = take_up_rate number_covariates effect_given_take_up sample_size standard_dev
 matrix list sample_size
 
 //how MDE changes when we add more covariates
-matrix input mde = (0,`mde',`N' `sd'\ `number_covariates',`mde_cov',`N_cov' `res_sd')
+matrix input mde = (0,`mde',`N',`sd'\ `number_covariates',`mde_cov',`N_cov', `res_sd')
 matrix colnames mde = number_covariates MDE N standard_dev
 matrix list mde
 

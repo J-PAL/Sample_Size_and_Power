@@ -115,7 +115,7 @@ N_base <- function (dataset, outcome, treatment){
   
   expected_effect = 0.3*baseline_sd                                             #The expected effect should be specified based on the intervention and the cost. 
                                                                                 #Here it is 0.3 times the sd
-  treated_mean <- expected_effect + baseline_sd
+  treated_mean <- expected_effect + baseline_mean
   
   base_model = twomeans(m1 = baseline_mean, m2 = treated_mean, sd = baseline_sd, 
                         nratio=nratio, power=power, sig.level = alpha)
