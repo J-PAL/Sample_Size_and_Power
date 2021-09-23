@@ -383,7 +383,7 @@ number_of_clusters <- function(dataset, outcome, treatment, m, icc){
   treated_mean = baseline_mean+expected_effect
   
   
-  cluster_number <- twomeans(m1 = baseline_mean, m2 = treated_mean, sd = baseline_sd, nratio=2, 
+  cluster_number <- twomeans(m1 = baseline_mean, m2 = treated_mean, sd = baseline_sd, nratio=nratio, 
                              sig.level = alpha, power=power)%>%
     clustered(obsclus = cluster_size, rho = icc)
   
