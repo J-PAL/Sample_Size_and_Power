@@ -151,8 +151,8 @@ alpha =0.05                                                                     
 p = nratio/(1+nratio)
 
 mde_base <- function (dataset, outcome, treatment, N){
-  t_power = qt(1-power, df=2*(N-1))
-  t_alpha = 1-qt(alpha/2, df=2*(N-1))
+  t_power = qt(power, df=2*(N-1))
+  t_alpha = qt(1-alpha/2, df=2*(N-1))
   
   baseline_sd <- sd(outcome, na.rm = TRUE)                                      #Record the standard deviation of the outcome variable at baseline   
   
@@ -252,8 +252,8 @@ p = nratio/(1+nratio)
 cov= c("pre_verb", "pre_math")                                                  #SPECIFY- a vector of covariate names - use baseline values of covariates
 
 mde_cov <- function (dataset, outcome, covariates, treatment, N){
-  t_power = qt(1-power, df=2*(N-1))
-  t_alpha = 1-qt(alpha/2, df=2*(N-1))
+  t_power = qt(power, df=2*(N-1))
+  t_alpha = qt(1-alpha/2, df=2*(N-1))
   
   cov_list <- paste(covariates, collapse = " + ")
   formula <- as.formula(paste("outcome ~ ",cov_list,sep = ""))
@@ -464,8 +464,8 @@ p = nratio/(1+nratio)
 
 mde_cluster <- function (dataset, outcome, treatment, cluster_size, number_clusters, icc){
   N = cluster_size*number_clusters
-  t_power = qt(1-power, df=2*(number_clusters-1))
-  t_alpha = 1-qt(alpha/2, df=2*(number_clusters-1))
+  t_power = qt(power, df=2*(number_clusters-1))
+  t_alpha = qt(1-alpha/2, df=2*(number_clusters-1))
   
   t_stat <- t_power + t_alpha
 
