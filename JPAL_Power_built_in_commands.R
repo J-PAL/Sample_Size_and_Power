@@ -307,8 +307,10 @@ N_partial <- function(dataset, outcome, treatment, takeup_treat, takeup_control)
                                                                                 #Here it is 0.3 times the sd
   
   tu = takeup_treat - takeup_control													                  #effective take-up
-  effect_tu = expected_effect/tu											                          #effect size after adjusting for take-up
-  treat_tu = baseline_mean + effect_tu                                           #treatment mean after adjusting for take-up
+  effect_tu = expected_effect*tu											                          #effect size after adjusting for take-up. 
+                                                                                #This will be the effect size you expect to measure with a true effect size of 
+                                                                                #`effect' and a take-up rate of `tu'. effect_tu < effect for imperfect take-up rates. 
+  treat_tu = baseline_mean + effect_tu                                          #treatment mean after adjusting for take-up
   
   partial_model <- twomeans(m1 = baseline_mean, m2 = treat_tu, nratio=nratio, sd = baseline_sd, 
                             power=, sig.level = alpha)

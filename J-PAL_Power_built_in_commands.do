@@ -237,21 +237,21 @@ local alpha = 0.05																//SPECIFY - the significance level
 local takeup_treat = 0.9														//SPECIFY - take-up in the treatment
 local takeup_control =  0.1														//SPECIFY - take-up in the control
 	
-quietly sum $outcome if !missing($outcome)										//sum the outcome at baseline and record the mean and the standard deviation
+quietly sum $outcome if !missing($outcome)										//sum the outcome at baseline and record the mean and the standard deviation with perfect take-up
 local sd_tu = `r(sd)'
 local baseline = `r(mean)'
 
-local effect_tu= `sd'*0.3														//SPECIFY - the expected effect with perfect take-up. Here we specify 0.3 standard deviations, but this should be updated based on what is reasonable for the study
+local effect= `sd'*0.3															//SPECIFY - the expected effect with perfect take-up. Here we specify 0.3 standard deviations, but this should be updated based on what is reasonable for the study
 
 local tu = `takeup_treat' - `takeup_control'									//effective take-up
-local effect_tu = `effect_tu'*`tu'												//effect size after adjusting for take-up
+local effect_tu = `effect'*`tu'													//effect size after adjusting for take-up. This will be the effect size you expect to measure with a true effect size of `effect' and a take-up rate of `tu’. effect_tu < effect for imperfect take-up rates. 
 local treat_tu = `baseline' + `effect_tu'										//treatment mean after adjusting for take-up
 
 power twomeans `baseline' `treat_tu', power(`power') sd(`sd_tu') nratio(`nratio') table
 local samplesize_tu = `r(N)'
 local effect_tu = round(`effect_tu',0.01)
 	
-di as error "A minimum sample size of `samplesize_tu' is needed to detect an effect of `effect_tu' with a probability of `power' if the effect is true and the ratio of units in treatment and control is `nratio'"
+di as error "A minimum sample size of `samplesize_tu' is needed to detect an effect of `effect_tu' (the true effect of `effect’ adjusted for the effective take-up of `tu') with a probability of `power' if the effect is true and the ratio of units in treatment and control is `nratio'"
 
 
 
