@@ -241,7 +241,7 @@ quietly sum $outcome if !missing($outcome)										//sum the outcome at baselin
 local sd_tu = `r(sd)'
 local baseline = `r(mean)'
 
-local effect= `sd'*0.3															//SPECIFY - the expected effect with perfect take-up. Here we specify 0.3 standard deviations, but this should be updated based on what is reasonable for the study
+local effect= `sd_tu'*0.3														//SPECIFY - the expected effect with perfect take-up. Here we specify 0.3 standard deviations, but this should be updated based on what is reasonable for the study
 
 local tu = `takeup_treat' - `takeup_control'									//effective take-up
 local effect_tu = `effect'*`tu'													//effect size after adjusting for take-up. This will be the effect size you expect to measure with a true effect size of `effect' and a take-up rate of `tu’. effect_tu < effect for imperfect take-up rates. 
