@@ -173,7 +173,7 @@ local nratio = 1																//SPECIFY - the ratio of experimental group to c
 local alpha =0.05																//SPECIFY - the significance level
 
 	
-local covariates "pre_verb pre_math"											//SPECIFY the covariates - use baseline values of covariates
+local covariates "female std sessiond"											//SPECIFY the covariates - use baseline values of covariates
 local number_covariates: word count `covariates'													
 
 regress $outcome `covariates' 												    //SPECIFY outcome and control variables
@@ -207,7 +207,7 @@ local alpha =0.05																//SPECIFY - the significance level
 local N_cov= _N																	//SPECIFY - the total sample size. 
 																				//This is taken from the Balsakhi dataset but can be changed based on the study
 
-local covariates "pre_verb pre_math"											//SPECIFY the covariates - use baseline values of covariates
+local covariates "female std sessiond"											//SPECIFY the covariates - use baseline values of covariates
 regress $outcome `covariates' 													//SPECIFY outcome and control variables
 
 local res_sd = round(sqrt(`e(rss)'/`e(df_r)'),0.0001)							//this is the new standard deviation for the power calculation or the residual sd not explained by the control(s). 

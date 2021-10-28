@@ -236,7 +236,7 @@ N_cov <- function(dataset,covariates, outcome, treatment){
 
 }
 
-cov= c("pre_verb", "pre_math")                                                  #SPECIFY- a vector of covariate names- use baseline values of covariates
+cov= c("gender", "std", "sessiond")                                                  #SPECIFY- a vector of covariate names- use baseline values of covariates
 
 cov_model <- N_cov(dataset, cov, outcome, treatment) 
 # Change the parameters of the function to see how the sample size changes
@@ -249,7 +249,7 @@ nratio = 1                                                                      
 alpha =0.05                                                                     #SPECIFY - significance level
 p = nratio/(1+nratio)
 
-cov= c("pre_verb", "pre_math")                                                  #SPECIFY- a vector of covariate names - use baseline values of covariates
+cov= c("gender", "std", "sessiond")                                             #SPECIFY- a vector of covariate names - use baseline values of covariates
 
 mde_cov <- function (dataset, outcome, covariates, treatment, N){
   t_power = qt(power, df=2*(N-1))
