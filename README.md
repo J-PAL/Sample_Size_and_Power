@@ -3,7 +3,7 @@
 
 ## Description
 
-This repository contains some sample code on conducting power calculations in either STATA or R. All files are self contained and can be  run independently from the other scripts. Please read the code preamble for more details on each file.  
+This repository contains some sample code on conducting power calculations in either STATA or R. All files are self contained and can be  run independently from the other scripts. Please read the code preamble for more details on each file. Please refer to the longer [Power calculations research resource](https://www.povertyactionlab.org/resource/power-calculations) to learn more about the intuition behind the power calculations. 
 
 
 ## Files
