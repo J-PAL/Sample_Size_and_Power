@@ -39,7 +39,7 @@ sample_size = 500                                                               
 effect = 0.2                                                                    #hypothesized treatment effect
 prop = 0.5                                                                      #the proportion of the total sample in the treatment group
 alpha = 0.05                                                                    #define the significance value. Here we are conducting a two-sided test.
-sim.size = 2000                                                                 #number of simulations
+sim.size = 2000                                                               #number of simulations
 side = "two"                                                                    #the kind of test (two, left or right)
 
 
@@ -75,19 +75,19 @@ t_value <- rep(0L, sim.size)
      
      if (side == "two"){
        
-       critical_u <- qt(1-alpha/2,(sample_size-1))                              #the upper critical value
+       critical_u <- qt(1-alpha/2,(sample_size-2))                              #the upper critical value
        critical_l <- qt(alpha/2,(sample_size-1))                                #the lower critical value
        reject_t[i] = ifelse(abs(t_value[i])> abs(critical_u),1,0)               #reject if the t-value lies in the critical region 
   
      }
      
      else if (side == "right"){
-       critical_u <- qt(1-alpha,(sample_size-1))                                #the upper critical value
+       critical_u <- qt(1-alpha,(sample_size-2))                                #the upper critical value
        reject_t[i] = ifelse(t_value[i]> critical_u,1,0)                         #reject if the t-value is more than the upper critical value 
      }
      
      else if (side == "left"){
-       critical_l <- qt(alpha,(sample_size-1))                                  #the lower critical value
+       critical_l <- qt(alpha,(sample_size-2))                                  #the lower critical value
        reject_t[i] = ifelse(t_value[i]< critical_l,1,0)                         #reject if the  t-value is lower than the lower critical level. 
 
      }

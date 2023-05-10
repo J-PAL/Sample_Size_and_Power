@@ -85,8 +85,8 @@ reject_t <- rep(0, sim.size)
 t_value <- rep(0L, sim.size)
 rho_value<- rep(0L, sim.size)
 
-critical_u <- qt(1-alpha/2,sample_size)                                         #the upper critical value
-critical_l <- qt(alpha/2,sample_size)                                           #the lower critical value
+critical_u <- qt(1-alpha/2,2*(num_clusters-1))                                      #the upper critical value
+critical_l <- qt(alpha/2,2*(num_clusters-1))                                        #the lower critical value
 
 
 i<- 1                                                                           #initialize iteration
@@ -131,19 +131,19 @@ while (i <= sim.size){
   
   if (side == "two"){
     
-    critical_u <- qt(1-alpha/2,(sample_size-1))                                 #the upper critical value
+    critical_u <- qt(1-alpha/2,2*(num_clusters-1))                              #the upper critical value
     critical_l <- qt(alpha/2,sample_size)                                       #the lower critical value
     reject_t[i] = ifelse(abs(t_value[i])> abs(critical_u),1,0)                  #reject if the t-value lies in the critical region 
     
   }
   
   else if (side == "right"){
-    critical_u <- qt(1-alpha,(sample_size-1))                                   #the upper critical value
+    critical_u <- qt(1-alpha,2*(num_clusters-1))                                  #the upper critical value
     reject_t[i] = ifelse(abs(t_value[i])> abs(critical_u),1,0)                  #reject if the t-value is more than the upper critical value 
   }
   
   else if (side == "left"){
-    critical_l <- qt(alpha,(sample_size-1))                                     #the lower critical value
+    critical_l <- qt(alpha,2*(num_clusters-1))                                  #the lower critical value
     reject_t[i] = ifelse(abs(t_value[i])> abs(critical_l),1,0)                  #reject if the abs value of t is higher than the lower critical level. 
     
   }
