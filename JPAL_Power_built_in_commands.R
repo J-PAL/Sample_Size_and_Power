@@ -151,8 +151,8 @@ alpha =0.05                                                                     
 p = nratio/(1+nratio)
 
 mde_base <- function (dataset, outcome, treatment, N){
-  t_power = qt(power, df=2*(N-1))
-  t_alpha = qt(1-alpha/2, df=2*(N-1))
+  t_power = qt(power, df=N-2)
+  t_alpha = qt(1-alpha/2, df=N-2)
   
   baseline_sd <- sd(outcome, na.rm = TRUE)                                      #Record the standard deviation of the outcome variable at baseline   
   
@@ -252,8 +252,8 @@ p = nratio/(1+nratio)
 cov= c("gender", "std", "sessiond")                                             #SPECIFY- a vector of covariate names - use baseline values of covariates
 
 mde_cov <- function (dataset, outcome, covariates, treatment, N){
-  t_power = qt(power, df=2*(N-1))
-  t_alpha = qt(1-alpha/2, df=2*(N-1))
+  t_power = qt(power, df=N-2)
+  t_alpha = qt(1-alpha/2, df=N-2)
   
   cov_list <- paste(covariates, collapse = " + ")
   formula <- as.formula(paste("outcome ~ ",cov_list,sep = ""))
