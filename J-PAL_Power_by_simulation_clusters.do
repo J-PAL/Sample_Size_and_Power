@@ -145,7 +145,7 @@ while  `it'<=`sims'{
 	quietly regress outcome treat, vce(cluster cluster_group)					//simple regression - the true effect is as specified above. The errors are clustered
 	
 	local t_value = _b[treat]/_se[treat]
-	local df=2*((`num_clusters'/2)-1)											//degrees of freedom is a function of the number of clusters
+	local df=2*((`num_clusters')-1)											//degrees of freedom is a function of the number of clusters
 	
 	if "`side'" == "two" {
 		local critical_l = invt(`df', `alpha'/2)								//the lower critical value

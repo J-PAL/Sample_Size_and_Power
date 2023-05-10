@@ -91,7 +91,7 @@ while `it' <=`sims'{
 		quietly regress outcome treat											//simple regression - the true effect is as specified above
 
 		local t_value = _b[treat]/_se[treat]									//the t-value for the t-test
-		local df=2*((`sample_size'/2)-1)										//degrees of freedom is a function of the sample size
+		local df=`sample_size'-2												//degrees of freedom is a function of the sample size
 			
 	if "`side'" == "two" {
 		local critical_l = invt(`df', `alpha'/2)								//the lower critical value
